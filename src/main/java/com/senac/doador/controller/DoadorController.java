@@ -24,6 +24,9 @@ public class DoadorController {
     @GetMapping("/listar")
     public ResponseEntity<List<Doador>> listar() {return ResponseEntity.ok(doadorService.listarDoadores());}
 
+    @PostMapping("/cadastrar")
+
+
     @GetMapping("/consultardoacoes")
     public List<DoadorComDoacoesDTO> consultarDoacoes() {
         List<Doador> doadores = doadorService.listarDoadores();
