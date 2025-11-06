@@ -27,8 +27,8 @@ public class DoadorController {
     @GetMapping("/listar")
     public ResponseEntity<List<Doador>> listar() {return ResponseEntity.ok(doadorService.listarDoadores());}
 
-    @PostMapping("/cadastrar")
-    public ResponseEntity<DoadorDtoResponse> cadastrar(@RequestBody DoadorDtoRequest doadorDtoRequest){
+    @PostMapping("/criar")
+    public ResponseEntity<DoadorDtoResponse> criar(@RequestBody DoadorDtoRequest doadorDtoRequest){
         return ResponseEntity.ok(doadorService.salvar(doadorDtoRequest));
     }
 
