@@ -2,9 +2,12 @@ package com.senac.doador.controller;
 
 import com.senac.doador.dto.DoacaoDto;
 import com.senac.doador.dto.DoadorComDoacoesDTO;
+import com.senac.doador.dto.request.DoadorDtoRequest;
+import com.senac.doador.dto.response.DoadorDtoResponse;
 import com.senac.doador.entity.Doador;
 import com.senac.doador.service.DoadorService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +28,9 @@ public class DoadorController {
     public ResponseEntity<List<Doador>> listar() {return ResponseEntity.ok(doadorService.listarDoadores());}
 
     @PostMapping("/cadastrar")
+    public ResponseEntity<DoadorDtoResponse> cadastrar(@RequestBody DoadorDtoRequest doadorDtoRequest){
+        return ResponseEntity.ok(doadorService.salvar(doadorDtoRequest));
+    }
 
 
     @GetMapping("/consultardoacoes")
